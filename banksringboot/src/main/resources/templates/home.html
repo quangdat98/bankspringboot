@@ -28,14 +28,16 @@
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col"></th>
+                <th scope="col">STT</th>
+                <th scope="col">ID</th>
                 <th scope="col">First</th>
                 <th scope="col">Last</th>
                 <th scope="col">Handle</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="list :${listAccount}">
+            <tr th:each="list,status :${listAccount}">
+                <td th:text="${status.index+1}"></td>
                 <td th:text="${list.id}"></td>
                 <td th:text="${list.name}"></td>
                 <td th:text="${list.phone}"></td>
