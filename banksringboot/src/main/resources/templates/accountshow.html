@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <title>Title</title>
+</head>
+<body>
+<!--   <th:block th:include="h :: header"></th:block> --><!--goi header ra (dang bi loi)-->
+<div class = "container">
+    <form th:object="${accountObject}" th:action="@{/acountURL}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" th:value="${accountObject.name}" >
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" th:value="${accountObject.phone}" >
+        </div>
+        <div class="form-group">
+            <label for="money">money</label>
+            <input type="text" class="form-control" id="money" aria-describedby="emailHelp" th:value="${accountObject.money}" >
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -5,6 +5,9 @@ import com.example.banksringboot.repositories.BankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+
 @Service
 public class AccountServiceIpml implements AccountService {
 
@@ -29,4 +32,11 @@ public class AccountServiceIpml implements AccountService {
     public void delete(Integer id) {
         bankRepository.deleteById(id);
     }
+
+    @Override
+    public AccountBank findAccountByID(Integer id) {
+        return (AccountBank) bankRepository.findOne(id);
+    }
+
+
 }
