@@ -11,10 +11,11 @@
 
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" th:href="@{/}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" th:href="${'/accout/new'}">Add Account</a>
+            <!--giong voi doan code ${'/accout/new'} = @{/accout/new} -->
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -30,9 +31,10 @@
             <tr>
                 <th scope="col">STT</th>
                 <th scope="col">ID</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Money</th>
+
             </tr>
             </thead>
             <tbody>
@@ -42,6 +44,7 @@
                 <td th:text="${list.name}"></td>
                 <td th:text="${list.phone}"></td>
                 <td th:text="${list.money}"></td>
+                <td><a th:href="${'/account/delete/'+list.getId()}">Delete</a></td>
             </tr>
 
             </tbody>
