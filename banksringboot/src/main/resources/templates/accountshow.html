@@ -9,18 +9,19 @@
 <body>
 <!--   <th:block th:include="h :: header"></th:block> --><!--goi header ra (dang bi loi)-->
 <div class = "container">
-    <form th:object="${accountObject}" th:action="@{/acountURL}" method="post">
+    <form th:object="${accountEdit}" th:action="@{/acountEdit}" method="post">
+        <input th:field="*{id}" type="hidden">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" th:value="${accountObject.name}" >
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" th:field="*{name}">
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" th:value="${accountObject.phone}" >
+            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" th:field="*{phone}" >
         </div>
         <div class="form-group">
             <label for="money">money</label>
-            <input type="text" class="form-control" id="money" aria-describedby="emailHelp" th:value="${accountObject.money}" >
+            <input type="text" class="form-control" id="money" aria-describedby="emailHelp" th:field="*{money}" >
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

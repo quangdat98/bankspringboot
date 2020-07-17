@@ -31,11 +31,15 @@ public class HomeController {
         model.addAttribute("accountObject",new AccountBank());
         return "forminput";
     }
+
+
     @PostMapping("/acountURL")
     public String getAccout(AccountBank accountBank){
         accountService.savaAccount(accountBank);
         return "redirect:/";
     }
+
+
 
     /*add new account end*/
 
@@ -49,6 +53,7 @@ public class HomeController {
         return "redirect:/";
     }
 
+
     /* delete account end */
 
 
@@ -56,8 +61,14 @@ public class HomeController {
 
     @GetMapping(value = "/account/edit/{id}")
     public String edit(ModelMap modelMap, @PathVariable Integer id){
-        modelMap.addAttribute("accountObject",accountService.findAccountByID(id));
-        return "forminput";
+        modelMap.addAttribute("accountEdit",accountService.findAccountByID(id));
+        return "accountshow";
+    }
+
+    @PostMapping("/acountEdit")
+    public String getAccoutEdit(AccountBank accountBank){
+        accountService.savaAccount(accountBank);
+        return "redirect:/";
     }
 
     /* edit account end */
