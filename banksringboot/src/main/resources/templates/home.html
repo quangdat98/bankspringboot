@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+    <div th:if="${not #lists.isEmpty(listAccount)}">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="list :${listAccount}">
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.phone}"></td>
+                <td th:text="${list.money}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
