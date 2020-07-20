@@ -19,6 +19,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String getHome(Model model){
+        model.addAttribute("objectAccount",new AccountBank());
         model.addAttribute("listAccount",accountService.listAccountBanks());
         return "home";
     }
@@ -73,5 +74,9 @@ public class HomeController {
 
     /* edit account end */
 
-
+    @GetMapping("/findId")
+    public String getFindId(@RequestParam int id,ModelMap model){
+        model.addAttribute("listAccount",accountService.findAccountByID(id));
+        return "home";
+    }
 }
